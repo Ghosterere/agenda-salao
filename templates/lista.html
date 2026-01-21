@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agenda</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+<h2>Agendamentos</h2>
+
+{% set servicos = {
+"mao":"Mão","pe":"Pé","mao_pe":"Mão + Pé",
+"cabelo":"Cabelo","cabelo_mao":"Cabelo + Mão",
+"cabelo_pe":"Cabelo + Pé","mao_pe_cabelo":"Mão + Pé + Cabelo"
+} %}
+
+{% for a in agendamentos %}
+<div class="item">
+<b>{{ a[1] }}</b><br>
+{{ servicos[a[3]] }}<br>
+{{ a[4] }} às {{ a[5] }}<br><br>
+
+<a class="btn" href="/editar/{{ a[0] }}">Editar</a>
+<a class="btn danger" href="/excluir/{{ a[0] }}"
+onclick="return confirm('Excluir horário?')">Excluir</a>
+<a class="btn secondary" href="/">Ir para a página inicial</a>
+</div>
+{% endfor %}
+
+<a class="btn secondary" href="/logout">Sair</a>
+</div>
+</body>
+</html>

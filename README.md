@@ -52,3 +52,25 @@ agenda-salao/
 ├── agenda.db            # Banco de dados SQLite (criado automaticamente)
 ├── requirements.txt
 └── README.md
+```
+
+## 🧠 Regras de Agendamento
+
+Não é permitido criar dois agendamentos no mesmo dia e horário
+
+Caso o horário esteja ocupado, o sistema bloqueia o cadastro
+
+Todos os dados ficam salvos no banco de dados local (SQLite)
+
+---
+
+## 🎯 Objetivo do Projeto
+
+Este projeto foi criado para facilitar o dia a dia de um salão de beleza,
+substituindo agendas de papel por uma solução digital simples, funcional e fácil de manter.
+
+---
+
+## 👤 Autor
+Projeto desenvolvido por Caio Santos
+Para uso pessoal / familiar ❤️

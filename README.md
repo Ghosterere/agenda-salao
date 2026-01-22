@@ -24,8 +24,10 @@ feito em Python usando Flask.
 
 1. Clone o repositório:
 ```bash
+
 git clone https://github.com/Ghosterere/agenda-salao.git
-=======
+
+```
 
 Sistema web simples para **controle de agendamentos** de um salão de beleza  
 (manicure, pedicure e cabeleireira), desenvolvido para **uso interno**, de forma prática, organizada e fácil de usar.

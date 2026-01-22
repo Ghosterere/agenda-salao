@@ -85,11 +85,9 @@ agenda-salao/
 
 ## 🧠 Regras de Agendamento
 
-Não é permitido criar dois agendamentos no mesmo dia e horário
-
-Caso o horário esteja ocupado, o sistema bloqueia o cadastro
-
-Todos os dados ficam salvos no banco de dados local (SQLite)
+- Não é permitido criar dois agendamentos no mesmo dia e horário
+- Caso o horário esteja ocupado, o sistema bloqueia o cadastro
+- Todos os dados ficam salvos no banco de dados local (SQLite)
 
 ---
 

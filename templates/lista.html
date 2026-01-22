@@ -8,25 +8,19 @@
 <div class="container">
 <h2>Agendamentos</h2>
 
-{% set servicos = {
-"mao":"Mão","pe":"Pé","mao_pe":"Mão + Pé",
-"cabelo":"Cabelo","cabelo_mao":"Cabelo + Mão",
-"cabelo_pe":"Cabelo + Pé","mao_pe_cabelo":"Mão + Pé + Cabelo","progressiva":"Progressiva",
-"selagem":"Selagem","botox":"Botox","tintura":"Tintura","depilacao":"Depilação",
-"Virilha completa":"Virilha completa","Axila":"Axila","Buço":"Buço","sobrancelha":"Sobrancelhas",
-"Buço","Buço"
-} %}
-
 {% for a in agendamentos %}
 <div class="item">
-<b>{{ a[1] }}</b><br>
-{{ servicos[a[3]] }}<br>
-{{ a[4] }} às {{ a[5] }}<br><br>
+    <b>{{ a[1] }}</b><br>
+    <small>{{ a[2] }}</small><br><br>
 
-<a class="btn" href="/editar/{{ a[0] }}">Editar</a>
-<a class="btn danger" href="/excluir/{{ a[0] }}"
-onclick="return confirm('Excluir horário?')">Excluir</a>
-<a class="btn secondary" href="/">Ir para a página inicial</a>
+    <b>Serviços:</b><br>
+    {{ a[3] }}<br><br>
+
+    {{ a[4] }} às {{ a[5] }}<br><br>
+
+    <a class="btn" href="/editar/{{ a[0] }}">Editar</a>
+    <a class="btn danger" href="/excluir/{{ a[0] }}"
+       onclick="return confirm('Excluir horário?')">Excluir</a>
 </div>
 {% endfor %}
 

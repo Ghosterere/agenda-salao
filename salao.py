@@ -6,13 +6,16 @@ app.secret_key = "segredo_salao"
 
 DB = "agendamentos.db"
 
+
 def conectar():
     return sqlite3.connect(DB)
+
 
 # ---------- HOME ----------
 @app.route("/")
 def home():
     return render_template("index.html")
+
 
 # ---------- LOGIN (SÓ SUA MÃE) ----------
 @app.route("/login", methods=["GET", "POST"])
@@ -27,10 +30,12 @@ def login():
 
     return render_template("login.html")
 
+
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/")
+
 
 # ---------- AGENDAR (CLIENTE) ----------
 @app.route("/agendar", methods=["GET", "POST"])
@@ -51,13 +56,17 @@ def agendar():
             conn.close()
             return "Horário já ocupado. <a href='/agendar'>Voltar</a>"
 
+        # MULTI SERVIÇOS
+        servicos = request.form.getlist("servicos")
+        servico = ", ".join(servicos)
+
         cur.execute("""
             INSERT INTO agendamentos (nome, telefone, servico, data, horario)
             VALUES (?, ?, ?, ?, ?)
         """, (
             request.form["nome"],
             request.form["telefone"],
-            request.form["servico"],
+            servico,
             data,
             horario
         ))
@@ -68,6 +77,7 @@ def agendar():
 
     conn.close()
     return render_template("agendar.html")
+
 
 # ---------- LISTA (ADMIN) ----------
 @app.route("/lista")
@@ -83,6 +93,7 @@ def lista():
 
     return render_template("lista.html", agendamentos=dados)
 
+
 # ---------- EDITAR ----------
 @app.route("/editar/<int:id>", methods=["GET", "POST"])
 def editar(id):
@@ -93,6 +104,9 @@ def editar(id):
     cur = conn.cursor()
 
     if request.method == "POST":
+        servicos = request.form.getlist("servicos")
+        servico = ", ".join(servicos)
+
         cur.execute("""
             UPDATE agendamentos
             SET nome=?, telefone=?, servico=?, data=?, horario=?
@@ -100,11 +114,12 @@ def editar(id):
         """, (
             request.form["nome"],
             request.form["telefone"],
-            request.form["servico"],
+            servico,
             request.form["data"],
             request.form["horario"],
             id
         ))
+
         conn.commit()
         conn.close()
         return redirect("/lista")
@@ -128,6 +143,7 @@ def excluir(id):
     conn.close()
 
     return redirect("/lista")
+
 
 if __name__ == "__main__":
     app.run(port=9000, debug=True)

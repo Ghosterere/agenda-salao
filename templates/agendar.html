@@ -5,40 +5,90 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+
 <div class="container">
-<h2>Agendar Horário</h2>
+    <h2>Agendar Horário</h2>
 
-<form method="POST">
-    <input name="nome" placeholder="Nome" required>
-    <input name="telefone" placeholder="Telefone" required>
+    <form method="POST">
 
-    <select name="servico" required>
-        <option value="">Selecione o serviço</option>
-        <option value="mao">Mão</option>
-        <option value="pe">Pé</option>
-        <option value="mao_pe">Mão + Pé</option>
-        <option value="cabelo">Cabelo</option>
-        <option value="cabelo_mao">Cabelo + Mão</option>
-        <option value="cabelo_pe">Cabelo + Pé</option>
-        <option value="mao_pe_cabelo">Mão + Pé + Cabelo</option>
-        <option value="progressiva">Progressiva</option>
-        <option value="selagem">Selagem</option>
-        <option value="botox">Botox</option>
-        <option value="tintura">Tintura</option>
-        <option value="depilacao">Depilação</option>
-        <option value="virilha_completa">Virilha completa</option>
-        <option value="axila">Axila</option>
-        <option value="buco">Buço</option>
-        <option value="sobrancelha">Sobrancelhas</option>
-    </select>
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="text" name="telefone" placeholder="Telefone" required>
 
-    <input type="date" name="data" required>
-    <input type="time" name="horario" required>
+        <h3 class="subtitulo">Selecione os serviços</h3>
 
-    <!-- BOTÃO CONFIRMAR -->
-    <button class="btn" type="submit">Confirmar horário</button>
-</form>
+        <div class="servicos">
 
-<!-- BOTÃO VOLTAR HOME -->
-<a class="btn secondary" href="/">Voltar para a página inicial</a>
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Mão">
+                <span>Mão</span>
+            </label>
 
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Pé">
+                <span>Pé</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Mão + Pé">
+                <span>Mão + Pé</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Cabelo">
+                <span>Cabelo</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Cabelo + Mão">
+                <span>Cabelo + Mão</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Cabelo + Pé">
+                <span>Cabelo + Pé</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Progressiva">
+                <span>Progressiva</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Selagem">
+                <span>Selagem</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Botox">
+                <span>Botox</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Tintura">
+                <span>Tintura</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Depilação">
+                <span>Depilação</span>
+            </label>
+
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="Sobrancelhas">
+                <span>Sobrancelhas</span>
+            </label>
+
+        </div>
+
+        <input type="date" name="data" required>
+        <input type="time" name="horario" required>
+
+        <button type="submit" class="btn">Confirmar horário</button>
+
+    </form>
+
+    <a href="/" class="btn secondary">Voltar para a página inicial</a>
+</div>
+
+</body>
+</html>

@@ -5,41 +5,43 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+
 <div class="container">
-<h2>Editar</h2>
+    <h2>Editar Agendamento</h2>
 
-<form method="POST">
-<input name="nome" value="{{ a[1] }}" required>
-<input name="telefone" value="{{ a[2] }}" required>
+    <form method="POST">
 
-<select name="servico">
-    <option value="{{ a[3] }}">Atual</option>
-    <option value="mao">Mão</option>
-    <option value="pe">Pé</option>
-    <option value="mao_pe">Mão + Pé</option>
-    <option value="cabelo">Cabelo</option>
-    <option value="cabelo_mao">Cabelo + Mão</option>
-    <option value="cabelo_pe">Cabelo + Pé</option>
-    <option value="mao_pe_cabelo">Mão + Pé + Cabelo</option>
-    <option value="progressiva">Progressiva</option>
-    <option value="selagem">Selagem</option>
-    <option value="botox">Botox</option>
-    <option value="tintura">Tintura</option>
-    <option value="depilacao">Depilação</option>
-    <option value="virilha_completa">Virilha completa</option>
-    <option value="axila">Axila</option>
-    <option value="buco">Buço</option>
-    <option value="sobrancelha">Sobrancelhas</option>
+        <input type="text" name="nome" value="{{ a[1] }}" required>
+        <input type="text" name="telefone" value="{{ a[2] }}" required>
 
-</select>
+        <h3 class="subtitulo">Serviços</h3>
 
-<input type="date" name="data" value="{{ a[4] }}" required>
-<input type="time" name="horario" value="{{ a[5] }}" required>
+        {% set selecionados = a[3].split(', ') %}
 
-<button class="btn">Salvar</button>
-</form>
+        <div class="servicos">
 
-<a class="btn secondary" href="/lista">Voltar</a>
+            {% for s in [
+                "Mão","Pé","Mão + Pé","Cabelo","Cabelo + Mão","Cabelo + Pé",
+                "Mão + Pé + Cabelo","Progressiva","Selagem","Botox","Tintura",
+                "Depilação","Virilha completa","Axila","Buço","Sobrancelhas"
+            ] %}
+            <label class="servico-item">
+                <input type="checkbox" name="servicos" value="{{ s }}"
+                       {% if s in selecionados %}checked{% endif %}>
+                <span>{{ s }}</span>
+            </label>
+            {% endfor %}
+
+        </div>
+
+        <input type="date" name="data" value="{{ a[4] }}" required>
+        <input type="time" name="horario" value="{{ a[5] }}" required>
+
+        <button class="btn">Salvar alterações</button>
+    </form>
+
+    <a href="/lista" class="btn secondary">Voltar</a>
 </div>
+
 </body>
 </html>

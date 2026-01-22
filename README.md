@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Agenda Salão 💅✂️
 Sistema de agendamento de horários para manicure, pedicure e cabelereira,
 feito em Python usando Flask.

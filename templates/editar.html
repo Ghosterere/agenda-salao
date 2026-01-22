@@ -18,21 +18,30 @@
 
         {% set selecionados = a[3].split(', ') %}
 
-        <div class="servicos">
+            <div class="servicos">
 
-            {% for s in [
-                "Mão","Pé","Mão + Pé","Cabelo","Cabelo + Mão","Cabelo + Pé",
-                "Mão + Pé + Cabelo","Progressiva","Selagem","Botox","Tintura",
-                "Depilação","Virilha completa","Axila","Buço","Sobrancelhas"
-            ] %}
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="{{ s }}"
-                       {% if s in selecionados %}checked{% endif %}>
-                <span>{{ s }}</span>
-            </label>
-            {% endfor %}
+                {% for s in [
+                    "Mão",
+                    "Pé",
+                    "Cabelo",
+                    "Progressiva",
+                    "Selagem",
+                    "Botox",
+                    "Tintura",
+                    "Depilação",
+                    "Virilha completa",
+                    "Axila",
+                    "Buço",
+                    "Sobrancelhas"
+                ] %}
+                <label class="servico-item">
+                    <input type="checkbox" name="servicos" value="{{ s }}"
+                        {% if s in selecionados %}checked{% endif %}>
+                    <span>{{ s }}</span>
+                </label>
+                {% endfor %}
 
-        </div>
+            </div>
 
         <input type="date" name="data" value="{{ a[4] }}" required>
         <input type="time" name="horario" value="{{ a[5] }}" required>

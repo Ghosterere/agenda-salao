@@ -14,71 +14,31 @@
         <input type="text" name="nome" placeholder="Nome" required>
         <input type="text" name="telefone" placeholder="Telefone" required>
 
-        <h3 class="subtitulo">Selecione os serviços</h3>
+       <h3 class="subtitulo">Selecione os serviços</h3>
+            <div class="servicos">
 
-        <div class="servicos">
+                {% for s in [
+                    "Mão",
+                    "Pé",
+                    "Cabelo",
+                    "Progressiva",
+                    "Selagem",
+                    "Botox",
+                    "Tintura",
+                    "Depilação",
+                    "Virilha completa",
+                    "Axila",
+                    "Buço",
+                    "Sobrancelhas"
+                ] %}
+                <label class="servico-item">
+                    <input type="checkbox" name="servicos" value="{{ s }}">
+                    <span>{{ s }}</span>
+                </label>
+                {% endfor %}
 
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Mão">
-                <span>Mão</span>
-            </label>
+            </div>
 
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Pé">
-                <span>Pé</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Mão + Pé">
-                <span>Mão + Pé</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Cabelo">
-                <span>Cabelo</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Cabelo + Mão">
-                <span>Cabelo + Mão</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Cabelo + Pé">
-                <span>Cabelo + Pé</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Progressiva">
-                <span>Progressiva</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Selagem">
-                <span>Selagem</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Botox">
-                <span>Botox</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Tintura">
-                <span>Tintura</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Depilação">
-                <span>Depilação</span>
-            </label>
-
-            <label class="servico-item">
-                <input type="checkbox" name="servicos" value="Sobrancelhas">
-                <span>Sobrancelhas</span>
-            </label>
-
-        </div>
 
         <input type="date" name="data" required>
         <input type="time" name="horario" required>
